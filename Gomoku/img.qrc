@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/menu">
-        <file>img/menu_background.jpg</file>
-    </qresource>
-    <qresource prefix="/icon">
-        <file>img/icon.ico</file>
-    </qresource>
-</RCC>
