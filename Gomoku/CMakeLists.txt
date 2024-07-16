@@ -17,16 +17,19 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        Board.cpp 
+	    Board.h 
+	    Board.ui
+        chessitem.h
+        chessitem.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Gomoku
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        icon.rc img.qrc
-        Board.cpp Board.h Board.ui
-        chessitem.h
-        chessitem.cpp
+        icon.rc
+	    img.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Gomoku APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

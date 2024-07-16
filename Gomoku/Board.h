@@ -23,7 +23,7 @@ QT_END_NAMESPACE
 
 class Board : public QWidget
 {
-    Q_OBJECT
+    //Q_OBJECT
 
 public:
     Board(QWidget *parent = nullptr);
