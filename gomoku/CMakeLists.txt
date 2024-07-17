@@ -26,7 +26,8 @@ message("Using compiler ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 # endif()
 
 set (SOURCES_EXAMPLES
-    gomoku
+    gomoku-gpt3.5
+    gomoku-gpt4o
     # 00-showcase
     # 01-model
     # 02-completion
@@ -42,7 +43,8 @@ set (SOURCES_EXAMPLES
 )
 
 set (TARGETS_EXAMPLES
-    gomoku
+    gomoku-gpt3.5
+    gomoku-gpt4o
     # 00-showcase
     # 01-model
     # 02-completion
