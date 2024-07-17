@@ -12,16 +12,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+# SET(CURL_MIN_VERSION "7.61.0")
+find_package(CURL REQUIRED)
+
+include_directories(${CURL_INCLUDE_DIRS})
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        Board.cpp 
-	    Board.h 
-	    Board.ui
+        Board35.cpp 
+	    Board35.h 
+	    Board35.ui
+        Board4o.cpp 
+	    Board4o.h 
+	    Board4o.ui
+        form.cpp 
+	    form.h 
+	    form.ui
         chessitem.h
         chessitem.cpp
+        Node.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -50,7 +62,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(Gomoku PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Gomoku PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${CURL_LIBRARIES})
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

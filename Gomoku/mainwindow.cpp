@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "Board.h"
+#include "form.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -32,7 +32,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_game_start_button_clicked()
 {
-    Board *board = new Board;
-    board->show();
+    Form *form = new Form;
+    form->show();
     this->hide();
 }
