@@ -9,6 +9,8 @@
 #include <QDebug>
 #include "chessitem.h"
 #include <QMessageBox>
+#include <QPixmap>
+#include <QPalette>
 
 #define ChessR 12
 #define ChessC 12
@@ -23,7 +25,7 @@ QT_END_NAMESPACE
 
 class Board : public QWidget
 {
-    //Q_OBJECT
+    Q_OBJECT
 
 public:
     Board(QWidget *parent = nullptr);

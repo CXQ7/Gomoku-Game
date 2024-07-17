@@ -25,6 +25,12 @@ void Board::InitUI()
 
 void Board::DrawChessBoard()
 {
+    /*QPixmap pixmap("img/menu_background.jpg");
+    QPalette palette1;
+    palette1.setBrush(QPalette::Window,QBrush(pixmap));
+    this->setPalette(palette1);
+    this->setAutoFillBackground(true);*/
+    ui->setupUi(this);
     QPainter painter(this);
     painter.setPen(QPen(QColor(Qt::black),2));
     painter.setBrush(Qt::white);
