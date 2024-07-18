@@ -15,7 +15,7 @@
 
 ## installation
 
-The library consists of two files: [openai.hpp](https://github.com/CXQ7/openai-cpp/blob/main/examples/openai.hpp) and [nlohmann\json.hpp](https://github.com/CXQ7/openai-cpp/blob/main/examples/nlohmann/json.hpp).</br>
+The library consists of two files: [openai.hpp](https://github.com/CXQ7/Gomoku-Game/blob/main/examples/openai.hpp) and [nlohmann\json.hpp](https://github.com/CXQ7/Gomoku-Game/blob/main/examples/nlohmann/json.hpp).</br>
 you can just download these files and feel free to test them.
 
 ## NO UI executions
@@ -29,19 +29,19 @@ here are the two original files that connect to the gpt models and play without 
 ## Gomoku with board
 We have provided two versions of gomoku games with board.</br>
 It allows player to use the mouse instead of inputing the postion of the chess in your key board.<br>
-here are the links: [board3.5.cpp](https://github.com/CXQ7/openai-cpp/blob/main/Gomoku/Board35.cpp) [board4o.cpp](https://github.com/CXQ7/openai-cpp/blob/main/Gomoku/Board4o.cpp)
+here are the links: [board3.5.cpp](https://github.com/CXQ7/Gomoku-Game/blob/main/Gomoku/Board35.cpp) [board4o.cpp](https://github.com/CXQ7/Gomoku-Game/blob/main/Gomoku/Board4o.cpp)
 
 ## the way to use
-In case you have no idea how to run the execution,watch it.
+In case you have no idea how to run the execution,watch this.
 open your Ubuntu and run this code
 ```
 sudo apt install qttools5-dev
 ```
 ```
-git clone https://github.com/CXQ7/openai-cpp.git
+git clone https://github.com/CXQ7/Gomoku-Game.git
 ```
 ```
-cd openai-cpp
+cd Gomoku-Game
 cd Gomoku
 mkdir build
 cd build
