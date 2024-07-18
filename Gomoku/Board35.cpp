@@ -27,7 +27,7 @@ void Board35::InitUI()
     //定义棋盘的大小
     this->resize((ChessC + 1) * MaxX, (ChessR + 1) * MaxX);
     DrawChessBoard();
-    b_black = false;
+    b_black = true;
 }
 
 void Board35::DrawChessBoard()

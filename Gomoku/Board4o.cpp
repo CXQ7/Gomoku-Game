@@ -27,7 +27,7 @@ void Board4o::InitUI()
     //定义棋盘的大小
     this->resize((ChessC + 1) * MaxX, (ChessR + 1) * MaxX);
     DrawChessBoard();
-    b_black = false;
+    b_black = true;
 }
 
 void Board4o::DrawChessBoard()
@@ -191,6 +191,9 @@ void Board4o::ai_move() {
             }
             else if(flag) break;
     }while(!is_valid_move(row,col));
+    
+    //将AI的回答中的坐标提取出来
+    board[row][col] = 'O';
 
     QPoint pt;  //定义点位
     
