@@ -41,7 +41,7 @@ sudo apt install qttools5-dev
 git clone https://github.com/CXQ7/openai-cpp.git
 ```
 ```
-cd openai.cpp
+cd openai-cpp
 cd Gomoku
 mkdir build
 cd build
