@@ -111,7 +111,7 @@ Node get_ai_move() {
                 "messages",{
                     {
                         {"role","user"},
-                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Just tell me the coordinate of the white you move"}
+                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Only tell me the coordinate of the white you move without telling me why."}
                     }
                 }
             }
@@ -132,11 +132,12 @@ Node get_ai_move() {
             }
             else if(s[i-1]>='0' && s[i-1]<='9') break;
         i++; p=i;
+        bool flag=0;
         for(i=p;i<int(s.size());i++)
             if(s[i]>='0' && s[i]<='9'){
-                col*=10;col+=s[i]-'0';
+                col*=10;col+=s[i]-'0';flag=1;
             }
-            else break;
+            else if(flag) break;
     }while(!is_valid_move(row,col));
     //将AI的回答中的坐标提取出来
      make_move(row, col, 'O');

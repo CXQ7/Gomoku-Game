@@ -122,7 +122,7 @@ Node get_ai_move() {
         //std::string c=board_state["messages"][0]["content"].get<std::string>();
         // std::cout<<c<<std::endl;
         std::string s=completion["choices"][0]["message"]["content"].get<std::string>();
-        std::cout<<s<<std::endl;
+       // std::cout<<s<<std::endl;
         
         row = 0;col = 0;
 
