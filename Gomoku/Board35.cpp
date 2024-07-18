@@ -164,7 +164,7 @@ void Board35::ai_move() {
                 "messages",{
                     {
                         {"role","user"},
-                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Just tell me the coordinate of the white you move"}
+                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Only tell me the coordinate of the white you move without telling me why."}
                     }
                 }
             }
@@ -187,7 +187,6 @@ void Board35::ai_move() {
                 col*=10;col+=s[i]-'0';
             }
             else break;
-        std::cout<<row<<' '<<col<<' '<<std::endl;
         if(is_valid_move(row,col)) break;
     }while(true);
     

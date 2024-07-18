@@ -141,7 +141,6 @@ void Board4o::clear_board() {
 
 void Board4o::ai_move() {
     int row,col,i,p;
-    char *api_key = getenv("OPENAI_API_KEY_2");
     openai::start("sk-0DITh75zrxk-8tM6mhckTA","",true,"https://agino.me/");
     
     std::string s1="",s2="";
@@ -164,7 +163,7 @@ void Board4o::ai_move() {
                 "messages",{
                     {
                         {"role","user"},
-                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Just tell me the coordinate of the white you move"}
+                        {"content","Let us play Gomoku. The goal of the game is to get five in a row (horizontally, vertically, or diagonally) on a 15x15 board. You cannot occupy existed. The coordinates of multiple Gomoku black spots are "+s1+"and the coordinates of multiple Gomoku white spots are "+s2+". For each coordinate, the first number represents the row and the second represents the column. Please try your best to prevent your enemy from winning by blocking the most possible way of having 5 black on the same row, column or diagonal. Only tell me the coordinate of the white you move without telling me why. "}
                     }
                 }
             }
@@ -172,9 +171,12 @@ void Board4o::ai_move() {
         
         auto completion = openai::chat().create(board_state);
 
+        //std::string c=board_state["messages"][0]["content"].get<std::string>();
+        // std::cout<<c<<std::endl;
         std::string s=completion["choices"][0]["message"]["content"].get<std::string>();
+        std::cout<<s<<std::endl;
         
-        row = 0, col = 0;
+        row = 0;col = 0;
 
         for(i=0;i<int(s.size());i++)
             if(s[i]>='0' && s[i]<='9'){
@@ -182,17 +184,13 @@ void Board4o::ai_move() {
             }
             else if(s[i-1]>='0' && s[i-1]<='9') break;
         i++; p=i;
+        bool flag=0;
         for(i=p;i<int(s.size());i++)
             if(s[i]>='0' && s[i]<='9'){
-                col*=10;col+=s[i]-'0';
+                col*=10;col+=s[i]-'0';flag=1;
             }
-            else break;
-        std::cout<<row<<' '<<col<<' '<<std::endl;
-        if(is_valid_move(row,col)) break;
-    }while(true);
-    
-    //将AI的回答中的坐标提取出来
-    board[row][col] = 'O';
+            else if(flag) break;
+    }while(!is_valid_move(row,col));
 
     QPoint pt;  //定义点位
     
